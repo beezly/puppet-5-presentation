@@ -1,0 +1,214 @@
+{
+  "version": 1,
+  "width": 129,
+  "height": 25,
+  "duration": 13.166706,
+  "command": null,
+  "title": null,
+  "env": {
+    "TERM": "xterm-256color",
+    "SHELL": "/usr/local/bin/zsh"
+  },
+  "stdout": [
+    [
+      1.267871,
+      "\u001b[1m\u001b[7m%\u001b[27m\u001b[1m\u001b[0m                                                                                                                                \r \r\u001b]2;andy@snip: ~/git/ee/coop/puppet-5-presentation/tmp/lasersharks\u0007\u001b]1;..p/lasersharks\u0007"
+    ],
+    [
+      0.195709,
+      "\r\u001b[0m\u001b[27m\u001b[24m\u001b[J\u001b[35m[lasersharks] \u001b[00m\u001b[K\u001b[101C\u001b[35mmaster\u001b[00m \u001b[33m ✭\u001b[36m ✈\u001b[30m ✱\u001b[00m\u001b[114D"
+    ],
+    [
+      0.000354,
+      "\u001b[?1h\u001b="
+    ],
+    [
+      0.000258,
+      "\u001b[?2004h"
+    ],
+    [
+      0.41941,
+      "b"
+    ],
+    [
+      0.066134,
+      "\bbu"
+    ],
+    [
+      0.199108,
+      "n"
+    ],
+    [
+      0.08521,
+      "d"
+    ],
+    [
+      0.141942,
+      "l"
+    ],
+    [
+      0.110127,
+      "e"
+    ],
+    [
+      0.076055,
+      " "
+    ],
+    [
+      0.141548,
+      "e"
+    ],
+    [
+      0.12774,
+      "x"
+    ],
+    [
+      0.180619,
+      "e"
+    ],
+    [
+      0.046172,
+      "c"
+    ],
+    [
+      0.098707,
+      " "
+    ],
+    [
+      0.502215,
+      "r"
+    ],
+    [
+      0.07801,
+      "a"
+    ],
+    [
+      0.158437,
+      "k"
+    ],
+    [
+      0.129431,
+      "e"
+    ],
+    [
+      0.079877,
+      " "
+    ],
+    [
+      0.178739,
+      "t"
+    ],
+    [
+      0.073584,
+      "e"
+    ],
+    [
+      0.169847,
+      "s"
+    ],
+    [
+      0.048111,
+      "t"
+    ],
+    [
+      0.098984,
+      "\u001b[?1l\u001b>"
+    ],
+    [
+      0.000113,
+      "\u001b[?2004l\r\r\n"
+    ],
+    [
+      0.002387,
+      "\u001b]2;bundle exec rake test\u0007\u001b]1;bundle\u0007"
+    ],
+    [
+      1.038375,
+      "Could not find semantic_puppet gem, falling back to internal functionality. Version checks may be less robust.\r\n"
+    ],
+    [
+      1.756611,
+      "---> syntax:manifests\r\n"
+    ],
+    [
+      0.050329,
+      "---> syntax:templates\r\n"
+    ],
+    [
+      0.001048,
+      "---> syntax:hiera:yaml\r\n"
+    ],
+    [
+      0.019477,
+      "puppet parser validate --noop manifests/init.pp\r\n"
+    ],
+    [
+      1.377855,
+      "ruby -c spec/spec_helper.rb\r\n"
+    ],
+    [
+      0.069339,
+      "Syntax OK\r\n"
+    ],
+    [
+      0.002026,
+      "ruby -c spec/classes/init_spec.rb\r\n"
+    ],
+    [
+      0.074459,
+      "Syntax OK\r\n"
+    ],
+    [
+      0.009895,
+      "I, [2018-01-26T15:13:06.066062 #72437]  INFO -- : Creating symlink from spec/fixtures/modules/lasersharks to /Users/andy/git/ee/coop/puppet-5-presentation/tmp/lasersharks\r\n"
+    ],
+    [
+      0.001079,
+      "/Users/andy/.rvm/rubies/ruby-2.4.3/bin/ruby -I/Users/andy/.rvm/gems/ruby-2.4.3/gems/rspec-core-3.7.0/lib:/Users/andy/.rvm/gems/ruby-2.4.3/gems/rspec-support-3.7.0/lib /Users/andy/.rvm/gems/ruby-2.4.3/gems/rspec-core-3.7.0/exe/rspec --pattern spec/\\{aliases,classes,defines,unit,functions,hosts,integration,type_aliases,types\\}/\\*\\*/\\*_spec.rb --color\r\n"
+    ],
+    [
+      1.970534,
+      "\u001b[32m.\u001b[0m"
+    ],
+    [
+      0.000519,
+      "\r\n"
+    ],
+    [
+      0.00029,
+      "\r\nFinished in 0.1842 seconds (files took 1.5 seconds to load)\r\n\u001b[32m1 example, 0 failures\u001b[0m\r\n"
+    ],
+    [
+      4.6e-05,
+      "\r\n"
+    ],
+    [
+      0.063372,
+      "\u001b[1m\u001b[7m%\u001b[27m\u001b[1m\u001b[0m                                                                                                                                \r \r"
+    ],
+    [
+      0.000222,
+      "\u001b]2;andy@snip: ~/git/ee/coop/puppet-5-presentation/tmp/lasersharks\u0007"
+    ],
+    [
+      3.5e-05,
+      "\u001b]1;..p/lasersharks\u0007"
+    ],
+    [
+      0.202242,
+      "\r\u001b[0m\u001b[27m\u001b[24m\u001b[J\u001b[35m[lasersharks] \u001b[00m\u001b[K\u001b[101C\u001b[35mmaster\u001b[00m \u001b[33m ✭\u001b[36m ✈\u001b[30m ✱\u001b[00m\u001b[114D"
+    ],
+    [
+      0.00012,
+      "\u001b[?1h\u001b="
+    ],
+    [
+      6.5e-05,
+      "\u001b[?2004h"
+    ],
+    [
+      1.795861,
+      "\u001b[?2004l\r\r\n"
+    ]
+  ]
+}

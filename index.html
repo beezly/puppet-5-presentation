@@ -1,0 +1,244 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; img-src 'self' *; child-src 'none';">
+		
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="plugin/asciinema/asciinema-player.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section><h1>Migrating to Puppet 5</h1></section>
+				<section>
+					<h2>What are we going to cover</h2>
+					<ul>
+						<li>Significant changes between Puppet 3 and Puppet 5</li>
+						<li>Developing Puppet 5 Modules</li>
+						<li>Strategies For Migrating Puppet 3 Modules</li>
+						<li>Discussion</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h2>Significant Changes</h2>
+						<ul>
+							<li>Typing</li>
+							<ul>
+								<li>https://puppet.com/docs/puppet/5.3/lang_data_type.html</li>
+								<li>Simple Types - Integer, Float, String, Array, Hash...</li>
+								<li>Complex Types - Variant, Optional, Undef...</li>
+								<li>"Defined types" are also real data types</li>
+							</ul>
+							<li>Deprecated features</li>
+							<ul>
+								<li>https://puppet.com/docs/puppet/4.6/upgrade_major_pre.html</li>
+								<li>Deprecation warnings in 3.8</li>
+							</ul>
+							<li>Lambda functions (map, each, filter)</li>
+							<li>
+								... and a couple of HUGE gotchas...
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Typing</h2>
+						<pre><code data-trim data-noescape>
+							class lasersharks (
+								Integer $some_value                    = $undef,
+								Variant[Undef,String] $some_variant    = 'blah',
+								Optional[String] $some_optional_string = 'blah'
+								Optional[Hash[String,Integer]]         = { 'foo' => 1, 'bar' => 99 },
+							) { 
+                # do something
+							}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Octal Numeric Representation</h3>
+						<pre><code data-trim data-noescape>
+							file{'/opt/lasersharks':
+								ensure => 'directory',
+								mode   => 755,
+							}
+						</code></pre>
+					</section>
+					<section>
+						<h3>Decimal 755 = Octal 1363</h3>
+						<h3>Octal 1363 = Binary 1011110011</h3>
+						Unix Permissions: t-wxrw--wx
+					</section>
+					<section>
+						<img data-src='https://i.ytimg.com/vi/orcvOtbTCjE/maxresdefault.jpg'>
+					</section>
+					<section>
+							<pre><code data-trim data-noescape>
+								file{'/opt/lasersharks':
+									ensure => 'directory',
+									<b>mode   => '0755'</b>,
+								}
+							</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+					  <h2>Developing Puppet 5 Modules</h2>
+					</section>
+					<section>
+						<h3>Tooling</h3>
+						<ul>
+							<li>Puppet</li>
+							<li>Ruby</li>
+							<li>Rubygems</li>
+							<li>RVM</li>
+						</ul>
+					</section>
+					<section>
+						<h2>RVM</h2>
+						<ul>
+							<li>Manages multiple installs of ruby</li>
+							<li>We don't need to meddle with system ruby</li>
+							<li>Manages collections of gems</li>
+							<li>Use something recent (MRI 2.4)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Installing RVM</h2>
+						<pre><code data-trim data-noescape>
+							$ gpg --keyserver hkp://keys.gnupg.net --recv-keys \
+							409B6B1796C275462A1703113804BB82D39DC0E3 \
+							7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+
+							$ \curl -sSL https://get.rvm.io | bash -s stable
+						</code></pre>
+						Shamelessly pilfered from https://rvm.io/rvm/install
+					</section>
+					<section>
+					  <pre><code data-trim data-noescape>
+							$ rvm list known
+
+							$ rvm install 2.4.3
+            </code></pre>
+					</section>
+					<section>
+						<h2>Install Bundler and Puppet from Gem</h2>
+						<pre><code data-trim data-noescape>
+							$ gem install bundler
+							$ gem install puppet -v 5.3.3
+						</code></pre>
+					</section>
+					<section>
+						<h2>Creating a new module</h2>
+						Puppet is your friend!
+						<pre><code data-trim data-noescape>
+							$ puppet module generate coop-lasersharks
+						</code></pre>
+					</section>
+					<section>
+						<img data-src='http://i0.kym-cdn.com/photos/images/original/000/733/273/448.jpg'>
+					</section>
+					<section>
+						<pre><code data-trim data-no-escape>
+							Notice: Generating module at /Users/andy/p5p/lasersharks...
+							Notice: Populating templates...
+							Finished; module generated in lasersharks.
+							lasersharks/metadata.json
+							lasersharks/spec
+							lasersharks/spec/spec_helper.rb
+							lasersharks/spec/classes
+							lasersharks/spec/classes/init_spec.rb
+							lasersharks/README.md
+							lasersharks/Rakefile
+							lasersharks/examples
+							lasersharks/examples/init.pp
+							lasersharks/Gemfile
+							lasersharks/manifests
+							lasersharks/manifests/init.pp
+						</code></pre>
+					</section>
+					<section>
+						<h2>metadata.json</h2>
+						<ul>
+							<li><emp>Do</emp> include immediate dependencies</li>
+							<li><emp>Do not</emp> include 3rd party dependencies</li>
+							<li>"license" should be "proprietary" unless you know otherwise</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Gemfile</h2>
+						<ul>
+							<li>Loads of useful stuff</li>
+						  <ul>
+								<li>facter</li>
+								<li>puppet-lint</li>
+								<li>rubocop</li>
+								<li>rspec-puppet</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h2>... and we're done!</h2>
+						<pre><code data-trim data-noescape>
+							$ bundle install
+							$ bundle exec rake test
+						</code></pre>
+						<asciinema-player src="asciinema/rake-test.json"></asciinema-player>
+					</section>
+					<section>
+						<h2>manifests/init.pp</h2>
+						<pre><code data-trim data-noescape>
+              class lasersharks {
+              }
+						</code></pre>
+					</section>
+					<section>
+						<h2>specs/class/init_spec.rb</h2>
+						<pre><code data-trim data-noescape>
+							require 'spec_helper'
+							describe 'lasersharks' do
+								context 'with default values for all parameters' do
+									<mark>it { should contain_class('lasersharks') }</mark>
+								end
+							end
+						</code></pre>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="plugin/asciinema/asciinema-player.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				]
+			});
+		</script>
+	</body>
+</html>
