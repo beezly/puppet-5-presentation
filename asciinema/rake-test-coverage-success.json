@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "width": 80,
+  "height": 20,
+  "duration": 16.024578,
+  "command": null,
+  "title": null,
+  "env": {
+    "TERM": "xterm-256color",
+    "SHELL": "/usr/local/bin/zsh"
+  },
+  "stdout": [
+    [
+      0.433054,
+      "\u001b[1m\u001b[7m%\u001b[27m\u001b[1m\u001b[0m                                                                               \r \r\u001b]2;andy@snip: ~/git/ee/coop/puppet-5-presentation/tmp/lasersharks\u0007\u001b]1;..p/lasersharks\u0007"
+    ],
+    [
+      0.210522,
+      "\r\u001b[0m\u001b[27m\u001b[24m\u001b[J\u001b[35m[lasersharks] \u001b[00m\u001b[K\u001b[56C\u001b[35mmaster\u001b[00m \u001b[30m ✱\u001b[00m\u001b[65D"
+    ],
+    [
+      0.000263,
+      "\u001b[?1h\u001b="
+    ],
+    [
+      4.2e-05,
+      "\u001b[?2004h"
+    ],
+    [
+      0.591491,
+      "b"
+    ],
+    [
+      0.068209,
+      "\bbu"
+    ],
+    [
+      0.136322,
+      "n"
+    ],
+    [
+      0.120009,
+      "d"
+    ],
+    [
+      0.096385,
+      "l"
+    ],
+    [
+      0.111778,
+      "e"
+    ],
+    [
+      0.095869,
+      " "
+    ],
+    [
+      0.095904,
+      "e"
+    ],
+    [
+      0.120019,
+      "x"
+    ],
+    [
+      0.176102,
+      "e"
+    ],
+    [
+      0.056004,
+      "c"
+    ],
+    [
+      0.095564,
+      " "
+    ],
+    [
+      0.112519,
+      "r"
+    ],
+    [
+      0.143862,
+      "a"
+    ],
+    [
+      0.047581,
+      "k"
+    ],
+    [
+      0.120388,
+      "e"
+    ],
+    [
+      0.087611,
+      " "
+    ],
+    [
+      0.104431,
+      "s"
+    ],
+    [
+      0.071915,
+      "p"
+    ],
+    [
+      0.088083,
+      "e"
+    ],
+    [
+      0.056079,
+      "c"
+    ],
+    [
+      0.071722,
+      "\u001b[?1l\u001b>"
+    ],
+    [
+      0.000227,
+      "\u001b[?2004l\r\r\n"
+    ],
+    [
+      0.002335,
+      "\u001b]2;bundle exec rake spec\u0007\u001b]1;bundle\u0007"
+    ],
+    [
+      0.955292,
+      "Could not find semantic_puppet gem, falling back to internal functionality. Version checks may be less robust.\r\n"
+    ],
+    [
+      1.034265,
+      "I, [2018-02-07T13:58:42.650127 #65307]  INFO -- : Creating symlink from spec/fixtures/modules/lasersharks to /Users/andy/git/ee/coop/puppet-5-presentation/tmp/lasersharks\r\n"
+    ],
+    [
+      0.000757,
+      "/Users/andy/.rvm/rubies/ruby-2.4.1/bin/ruby -I/Users/andy/.rvm/gems/ruby-2.4.1/gems/rspec-core-3.7.0/lib:/Users/andy/.rvm/gems/ruby-2.4.1/gems/rspec-support-3.7.0/lib /Users/andy/.rvm/gems/ruby-2.4.1/gems/rspec-core-3.7.0/exe/rspec --pattern spec/\\{aliases,classes,defines,unit,functions,hosts,integration,type_aliases,types\\}/\\*\\*/\\*_spec.rb --color\r\n"
+    ],
+    [
+      1.808651,
+      "\u001b[32m.\u001b[0m"
+    ],
+    [
+      0.003553,
+      "\u001b[32m.\u001b[0m"
+    ],
+    [
+      0.000364,
+      "\r\nTotal resources:   1\r\nTouched resources: 1\r\nResource coverage: 100.00%\r\n"
+    ],
+    [
+      3.7e-05,
+      "\r\n"
+    ],
+    [
+      0.00035,
+      "\r\nFinished in 0.15798 seconds (files took 1.37 seconds to load)\r\n\u001b[32m2 examples, 0 failures\u001b[0m\r\n"
+    ],
+    [
+      0.000101,
+      "\r\n"
+    ],
+    [
+      0.051078,
+      "\u001b[1m\u001b[7m%\u001b[27m\u001b[1m\u001b[0m                                                                               \r \r"
+    ],
+    [
+      0.000224,
+      "\u001b]2;andy@snip: ~/git/ee/coop/puppet-5-presentation/tmp/lasersharks\u0007"
+    ],
+    [
+      5.2e-05,
+      "\u001b]1;..p/lasersharks\u0007"
+    ],
+    [
+      0.206627,
+      "\r\u001b[0m\u001b[27m\u001b[24m\u001b[J\u001b[35m[lasersharks] \u001b[00m\u001b[K\u001b[56C\u001b[35mmaster\u001b[00m \u001b[30m ✱\u001b[00m\u001b[65D"
+    ],
+    [
+      8.7e-05,
+      "\u001b[?1h\u001b="
+    ],
+    [
+      8.4e-05,
+      "\u001b[?2004h"
+    ],
+    [
+      8.591396,
+      "\u001b[?2004l\r\r\n"
+    ]
+  ]
+}
