@@ -42,7 +42,7 @@
 						<ul>
 							<li>Typing</li>
 							<ul>
-								<li>https://puppet.com/docs/puppet/5.3/lang_data_type.html</li>
+								<li style="font-family: smaller;">https://puppet.com/docs/puppet/5.3/lang_data_type.html</li>
 								<li>Simple Types - Integer, Float, String, Array, Hash...</li>
 								<li>Complex Types - Variant, Optional, Undef...</li>
 								<li>"Defined types" are also real data types</li>
@@ -61,23 +61,26 @@
 					<section>
 						<h2>Typing</h2>
 						<pre><code data-trim data-noescape>
-							class lasersharks (
-								Integer $some_value                    = $undef,
-								Variant[Undef,String] $some_variant    = 'blah',
-								Optional[String] $some_optional_string = 'blah'
-								Optional[Hash[String,Integer]]         = { 'foo' => 1, 'bar' => 99 },
-							) { 
-                # do something
-							}
+class lasersharks (
+	Integer $some_value                    = $undef,
+	Variant[Undef,String] $some_variant    = 'blah',
+	Optional[String] $some_optional_string = 'blah'
+	Optional[Hash[String,Integer]]         = { 
+		'foo' => 1, 
+		'bar' => 99
+	},
+) { 
+	# do something
+}
 						</code></pre>
 					</section>
 					<section>
 						<h2>Octal Numeric Representation</h3>
 						<pre><code data-trim data-noescape>
-							file{'/opt/lasersharks':
-								ensure => 'directory',
-								mode   => 755,
-							}
+file{'/opt/lasersharks':
+	ensure => 'directory',
+	mode   => 755,
+}
 						</code></pre>
 					</section>
 					<section>
@@ -90,10 +93,10 @@
 					</section>
 					<section>
 							<pre><code data-trim data-noescape>
-								file{'/opt/lasersharks':
-									ensure => 'directory',
-									<b>mode   => '0755'</b>,
-								}
+file{'/opt/lasersharks':
+	ensure => 'directory',
+	<mark>mode   => '0755'</mark>,
+}
 							</code></pre>
 					</section>
 				</section>
@@ -122,33 +125,37 @@
 					<section>
 						<h2>Installing RVM</h2>
 						<pre><code data-trim data-noescape>
-							$ gpg --keyserver hkp://keys.gnupg.net --recv-keys \
-							409B6B1796C275462A1703113804BB82D39DC0E3 \
-							7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+$ gpg --keyserver hkp://keys.gnupg.net --recv-keys \
+409B6B1796C275462A1703113804BB82D39DC0E3 \
+7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 
-							$ \curl -sSL https://get.rvm.io | bash -s stable
+$ \curl -sSL https://get.rvm.io | bash -s stable
 						</code></pre>
 						Shamelessly pilfered from https://rvm.io/rvm/install
 					</section>
 					<section>
 					  <pre><code data-trim data-noescape>
-							$ rvm list known
+$ rvm list known
 
-							$ rvm install 2.4.3
-            </code></pre>
+$ rvm install 2.4.3
+
+$ rvm use 2.4.3
+						</code></pre>
+						(create a .ruby_version file3)
 					</section>
 					<section>
 						<h2>Install Bundler and Puppet from Gem</h2>
 						<pre><code data-trim data-noescape>
-							$ gem install bundler
-							$ gem install puppet -v 5.3.3
+$ gem install bundler
+
+$ gem install puppet -v 5.3.4
 						</code></pre>
 					</section>
 					<section>
 						<h2>Creating a new module</h2>
 						Puppet is your friend!
 						<pre><code data-trim data-noescape>
-							$ puppet module generate coop-lasersharks
+$ puppet module generate coop-lasersharks
 						</code></pre>
 					</section>
 					<section>
@@ -156,28 +163,28 @@
 					</section>
 					<section>
 						<pre><code data-trim data-no-escape>
-							Notice: Generating module at /Users/andy/p5p/lasersharks...
-							Notice: Populating templates...
-							Finished; module generated in lasersharks.
-							lasersharks/metadata.json
-							lasersharks/spec
-							lasersharks/spec/spec_helper.rb
-							lasersharks/spec/classes
-							lasersharks/spec/classes/init_spec.rb
-							lasersharks/README.md
-							lasersharks/Rakefile
-							lasersharks/examples
-							lasersharks/examples/init.pp
-							lasersharks/Gemfile
-							lasersharks/manifests
-							lasersharks/manifests/init.pp
+Notice: Generating module at /Users/andy/p5p/lasersharks...
+Notice: Populating templates...
+Finished; module generated in lasersharks.
+lasersharks/metadata.json
+lasersharks/spec
+lasersharks/spec/spec_helper.rb
+lasersharks/spec/classes
+lasersharks/spec/classes/init_spec.rb
+lasersharks/README.md
+lasersharks/Rakefile
+lasersharks/examples
+lasersharks/examples/init.pp
+lasersharks/Gemfile
+lasersharks/manifests
+lasersharks/manifests/init.pp
 						</code></pre>
 					</section>
 					<section>
 						<h2>metadata.json</h2>
 						<ul>
-							<li><emp>Do</emp> include immediate dependencies</li>
-							<li><emp>Do not</emp> include 3rd party dependencies</li>
+							<li>Do include immediate dependencies</li>
+							<li>Do not include 3rd party dependencies</li>
 							<li>"license" should be "proprietary" unless you know otherwise</li>
 						</ul>
 					</section>
@@ -196,27 +203,98 @@
 					<section>
 						<h2>... and we're done!</h2>
 						<pre><code data-trim data-noescape>
-							$ bundle install
-							$ bundle exec rake test
+$ bundle install
+$ bundle exec rake test
 						</code></pre>
 						<asciinema-player src="asciinema/rake-test.json"></asciinema-player>
 					</section>
 					<section>
 						<h2>manifests/init.pp</h2>
 						<pre><code data-trim data-noescape>
-              class lasersharks {
-              }
+class lasersharks {
+}
 						</code></pre>
 					</section>
 					<section>
 						<h2>specs/class/init_spec.rb</h2>
 						<pre><code data-trim data-noescape>
-							require 'spec_helper'
-							describe 'lasersharks' do
-								context 'with default values for all parameters' do
-									<mark>it { should contain_class('lasersharks') }</mark>
-								end
-							end
+require 'spec_helper'
+describe 'lasersharks' do
+	context 'with default values for all parameters' do
+		<mark>it { should contain_class('lasersharks') }</mark>
+	end
+end
+						</code></pre>
+					</section>
+					<section>
+						<h2>Use code coverage to help keep you honest</h2>
+						In spec_helper.rb
+						<pre><code data-trim data-noescape>
+require 'puppetlabs_spec_helper/module_spec_helper'
+
+RSpec.configure do |r|
+	r.after(:suite) do
+		RSpec::Puppet::Coverage.report! 100
+	end
+end
+						</code></pre>
+					</section>
+					<section>
+						<h2>Our new manifests/init.pp</h2>
+						<pre><code data-trim data-noescape>
+class lasersharks {
+	file {'/opt/lasersharks':
+		ensure => 'directory',
+	}
+}
+					  </code></pre>
+					</section>
+					<section>
+						<pre><code data-trim data-noescape>
+$ bundle exec rake spec
+						</code></pre>
+						<asciinema-player src="asciinema/rake-test-coverage.json"></asciinema-player>
+					</section>
+					<section>
+						<pre><code data-notrim data-noescape style="font-size: smaller;">
+Total resources:   1
+Touched resources: 0
+Resource coverage:  0.00%
+Untouched resources:
+
+	<mark>File[/opt/lasersharks]</mark>
+F
+
+Failures:
+
+	1) Code coverage. Must be at least 100% of code coverage
+		Failure/Error: RSpec::Puppet::Coverage.report! 100
+
+			expected: >= 100.0
+						got:    0.0
+		# /Users/andy/.rvm/gems/ruby-2.4.1/gems/rspec-puppet-2.6.9/lib/rspec-puppet/coverage.rb:104:in `block in coverage_test'
+		# /Users/andy/.rvm/gems/ruby-2.4.1/gems/rspec-puppet-2.6.9/lib/rspec-puppet/coverage.rb:106:in `coverage_test'
+		# /Users/andy/.rvm/gems/ruby-2.4.1/gems/rspec-puppet-2.6.9/lib/rspec-puppet/coverage.rb:95:in `report!'
+		# ./spec/spec_helper.rb:5:in `block (2 levels) in <top (required)>'
+
+Finished in 0.2357 seconds (files took 1.56 seconds to load)
+1 example, 1 failure
+
+Failed examples:
+
+rspec  # Code coverage. Must be at least 100% of code coverage
+						</code></pre>
+					</section>
+					<section>
+						Extend the test in spec/classes/init_spec.rb
+            <pre><code data-notrim data-noescape>
+require 'spec_helper'
+describe 'lasersharks' do
+	context 'with default values for all parameters' do
+		it { should contain_class('lasersharks') }
+		it { should contain_file('/opt/lasersharks') }
+	end
+end
 						</code></pre>
 					</section>
 				</section>

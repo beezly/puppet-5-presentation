@@ -1,0 +1,198 @@
+{
+  "version": 1,
+  "width": 179,
+  "height": 44,
+  "duration": 15.138968,
+  "command": null,
+  "title": null,
+  "env": {
+    "TERM": "xterm-256color",
+    "SHELL": "/usr/local/bin/zsh"
+  },
+  "stdout": [
+    [
+      0.477142,
+      "\u001b[1m\u001b[7m%\u001b[27m\u001b[1m\u001b[0m                                                                                                                                                                                  \r \r\u001b]2;andy@snip: ~/git/ee/coop/puppet-5-presentation/tmp/lasersharks\u0007"
+    ],
+    [
+      0.000149,
+      "\u001b]1;..p/lasersharks\u0007"
+    ],
+    [
+      0.212833,
+      "\r\u001b[0m\u001b[27m\u001b[24m\u001b[J\u001b[35m[lasersharks] \u001b[00m"
+    ],
+    [
+      0.000117,
+      "\u001b[K\u001b[153C\u001b[35mmaster\u001b[00m \u001b[33m ✭\u001b[30m ✱\u001b[00m\u001b[164D"
+    ],
+    [
+      0.000284,
+      "\u001b[?1h\u001b="
+    ],
+    [
+      0.00012,
+      "\u001b[?2004h"
+    ],
+    [
+      0.518911,
+      "b"
+    ],
+    [
+      0.060705,
+      "\bbu"
+    ],
+    [
+      0.144417,
+      "n"
+    ],
+    [
+      0.104052,
+      "d"
+    ],
+    [
+      0.128283,
+      "l"
+    ],
+    [
+      0.095265,
+      "e"
+    ],
+    [
+      0.091848,
+      " "
+    ],
+    [
+      0.100243,
+      "e"
+    ],
+    [
+      0.119923,
+      "x"
+    ],
+    [
+      0.160261,
+      "e"
+    ],
+    [
+      0.071812,
+      "c"
+    ],
+    [
+      0.07958,
+      " "
+    ],
+    [
+      0.128562,
+      "r"
+    ],
+    [
+      0.127806,
+      "a"
+    ],
+    [
+      0.056347,
+      "k"
+    ],
+    [
+      0.103771,
+      "e"
+    ],
+    [
+      0.079377,
+      " "
+    ],
+    [
+      0.088344,
+      "s"
+    ],
+    [
+      0.072281,
+      "p"
+    ],
+    [
+      0.095739,
+      "e"
+    ],
+    [
+      0.056406,
+      "c"
+    ],
+    [
+      0.08835,
+      "\u001b[?1l\u001b>"
+    ],
+    [
+      5.8e-05,
+      "\u001b[?2004l\r\r\n"
+    ],
+    [
+      0.002501,
+      "\u001b]2;bundle exec rake spec\u0007\u001b]1;bundle\u0007"
+    ],
+    [
+      0.959688,
+      "Could not find semantic_puppet gem, falling back to internal functionality. Version checks may be less robust.\r\n"
+    ],
+    [
+      1.041168,
+      "I, [2018-02-07T13:42:06.069835 #61920]  INFO -- : Creating symlink from spec/fixtures/modules/lasersharks to /Users/andy/git/ee/coop/puppet-5-presentation/tmp/lasersharks\r\n"
+    ],
+    [
+      0.000734,
+      "/Users/andy/.rvm/rubies/ruby-2.4.1/bin/ruby -I/Users/andy/.rvm/gems/ruby-2.4.1/gems/rspec-core-3.7.0/lib:/Users/andy/.rvm/gems/ruby-2.4.1/gems/rspec-support-3.7.0/lib /Users/andy/.rvm/gems/ruby-2.4.1/gems/rspec-core-3.7.0/exe/rspec --pattern spec/\\{aliases,classes,defines,unit,functions,hosts,integration,type_aliases,types\\}/\\*\\*/\\*_spec.rb --color\r\n"
+    ],
+    [
+      2.038326,
+      "\u001b[32m.\u001b[0m"
+    ],
+    [
+      0.000492,
+      "\r\nTotal resources:   1\r\nTouched resources: 0\r\nResource coverage:  0.00%\r\n"
+    ],
+    [
+      4.5e-05,
+      "Untouched resources:\r\n\r\n  File[/opt/lasersharks]\r\n"
+    ],
+    [
+      0.040789,
+      "\u001b[31mF\u001b[0m\r\n"
+    ],
+    [
+      0.022074,
+      "\r\nFailures:\r\n\r\n  1) Code coverage. Must be at least 100% of code coverage\r\n     \u001b[31mFailure/Error: RSpec::Puppet::Coverage.report! 100\u001b[0m\r\n     \u001b[31m\u001b[0m\r\n     \u001b[31m  expected: >= 100.0\u001b[0m\r\n     \u001b[31m       got:    0.0\u001b[0m\r\n     \u001b[36m# /Users/andy/.rvm/gems/ruby-2.4.1/gems/rspec-puppet-2.6.9/lib/rspec-puppet/coverage.rb:104:in `block in coverage_test'\u001b[0m\r\n     \u001b[36m# /Users/andy/.rvm/gems/ruby-2.4.1/gems/rspec-puppet-2.6.9/lib/rspec-puppet/coverage.rb:106:in `coverage_test'\u001b[0m\r\n     \u001b[36m# /Users/andy/.rvm/gems/ruby-2.4.1/gems/rspec-puppet-2.6.9/lib/rspec-puppet/coverage.rb:95:in `report!'\u001b[0m\r\n     \u001b[36m# ./spec/spec_helper.rb:5:in `block (2 levels) in <top (required)>'\u001b[0m\r\n"
+    ],
+    [
+      0.000348,
+      "\r\nFinished in 0.2357 seconds (files took 1.56 seconds to load)\r\n\u001b[31m1 example, 1 failure\u001b[0m\r\n\r\nFailed examples:\r\n\r\n\u001b[31mrspec \u001b[0m \u001b[36m# Code coverage. Must be at least 100% of code coverage\u001b[0m\r\n\r\n"
+    ],
+    [
+      0.066663,
+      "\u001b[1m\u001b[7m%\u001b[27m\u001b[1m\u001b[0m                                                                                                                                                                                  \r \r"
+    ],
+    [
+      0.000194,
+      "\u001b]2;andy@snip: ~/git/ee/coop/puppet-5-presentation/tmp/lasersharks\u0007"
+    ],
+    [
+      4.2e-05,
+      "\u001b]1;..p/lasersharks\u0007"
+    ],
+    [
+      0.206711,
+      "\r\u001b[0m\u001b[27m\u001b[24m\u001b[J\u001b[35m[lasersharks] \u001b[00m\u001b[K\u001b[153C\u001b[35mmaster\u001b[00m \u001b[33m ✭\u001b[30m ✱\u001b[00m\u001b[164D"
+    ],
+    [
+      4.8e-05,
+      "\u001b[?1h\u001b="
+    ],
+    [
+      8.7e-05,
+      "\u001b[?2004h"
+    ],
+    [
+      7.434676,
+      "\u001b[?2004l\r\r\n"
+    ]
+  ]
+}
