@@ -164,7 +164,7 @@ $ puppet module generate coop-lasersharks
 						<img data-src='http://i0.kym-cdn.com/photos/images/original/000/733/273/448.jpg'>
 					</section>
 					<section>
-						<pre><code data-trim data-no-escape>
+						<small><pre><code data-trim data-no-escape>
 Notice: Generating module at /Users/andy/p5p/lasersharks...
 Notice: Populating templates...
 Finished; module generated in lasersharks.
@@ -180,7 +180,7 @@ lasersharks/examples/init.pp
 lasersharks/Gemfile
 lasersharks/manifests
 lasersharks/manifests/init.pp
-						</code></pre>
+						</code></pre></small>
 					</section>
 					<section>
 						<h2>metadata.json</h2>
@@ -301,6 +301,39 @@ end
 					</section>
 					<section>
 						<asciinema-player src="asciinema/rake-test-coverage-success.json"></asciinema-player>
+					</section>
+					<section>
+						<h1>rake -T</h1>
+						<pre><code data-notrim data-noescape><small>
+rake beaker                # Run beaker acceptance tests
+rake beaker:sets           # List available beaker nodesets
+rake beaker:ssh[set,node]  # Try to use vagrant to login to the Beaker node
+rake build                 # Build puppet module package
+rake check:dot_underscore  # Fails if any ._ files are present in directory
+rake check:git_ignore      # Fails if directories contain the files specified in .gitignore
+rake check:symlinks        # Fails if symlinks are present in directory
+rake check:test_file       # Fails if .pp files present in tests folder
+rake clean                 # Clean a built module package
+rake compute_dev_version   # Print development version of module
+rake help                  # Display the list of available rake tasks
+rake lint                  # Run puppet-lint
+rake metadata_lint         # Run metadata-json-lint
+rake parallel_spec         # Parallel spec tests
+rake release_checks        # Runs all necessary checks on a module in preparation for a release
+rake rubocop               # Run RuboCop
+rake rubocop:auto_correct  # Auto-correct RuboCop offenses
+rake spec                  # Run spec tests and clean the fixtures directory if successful
+rake spec_clean            # Clean up the fixtures directory
+rake spec_list_json        # List spec tests in a JSON document
+rake spec_prep             # Create the fixtures directory
+rake spec_standalone       # Run RSpec code examples
+rake syntax                # Syntax check Puppet manifests and templates
+rake syntax:hiera          # Syntax check Hiera config files
+rake syntax:manifests      # Syntax check Puppet manifests
+rake syntax:templates      # Syntax check Puppet templates
+rake test                  # Run lint, validate, and spec tests
+rake validate              # Check syntax of Ruby files and call :syntax and :metadata_lint / Validate manifests, templates, and ruby files
+            </small></code></pre>
 					</section>
 					<section>
 						Also check out the Puppet Development Kit (pdk)
